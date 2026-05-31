@@ -1,0 +1,1482 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+body {
+    background-color: #121214; /* Gris ultra oscuro estilo Maximus */
+    color: #e1e1e6;
+    overflow-x: hidden;
+}
+.neon-text {
+    color: #22c55e;
+}
+/* NAVBAR SUPERIOR CORREGIDA (ESPERA AL SCROLL) */
+.main-navbar {
+    position: sticky; /* 💡 CLAVE: Esto obliga a la navbar a quedarse abajo del menú principal y no taparlo */
+    top: 0;
+    /* ... todo el resto del código que ya tenías abajo */
+}
+
+
+.brand-logo { display: flex; flex-direction: column; }
+.logo-text { font-size: 22px; font-weight: 900; color: #22c55e; letter-spacing: 2px; }
+.logo-sub { font-size: 7px; color: #7c7c8a; letter-spacing: 0.5px; margin-top: 1px; }
+
+.nav-center { display: flex; width: 100%; max-width: 400px; }
+.nav-center input {
+    flex-grow: 1;
+    background-color: #121214;
+    border: 1px solid #202024;
+    border-right: none;
+    padding: 8px 14px;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-btn {
+    background-color: #121214;
+    border: 1px solid #202024;
+    color: #7c7c8a;
+    padding: 0 12px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+.cart-toggle-btn {
+    background: none;
+    border: 1px solid #202024;
+    color: #e1e1e6;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.cart-toggle-btn:hover { border-color: #22c55e; color: #22c55e; }
+
+.page-layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+
+/* ==========================================================================
+   🎛️ NUEVOS ESTILOS FILTRADO COMPRA GAMER PREMIUM
+   ========================================================================== */
+.sidebar-filters {
+    width: 280px;              /* Un toque más ancha para que respiren los textos */
+    background-color: #0c0c0e; /* Gris premium ultra oscuro */
+    border-right: 1px solid #1c1c1e;
+    padding: 30px 20px;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto; 
+    background:
+linear-gradient(
+180deg,
+#080808,
+#050505
+);
+
+border-right:
+1px solid rgba(255,255,255,.04);         /* Habilita scroll interno si agregás muchos filtros */
+}
+
+/* Estilizado de la barra de scroll de los filtros */
+.sidebar-filters::-webkit-scrollbar { width: 3px; }
+.sidebar-filters::-webkit-scrollbar-thumb { background-color: #202024; border-radius: 10px; }
+
+.filter-group {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #1c1c1e; /* Línea divisoria tenue entre módulos */
+    padding-bottom: 20px;
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+}
+
+.filter-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.filter-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Más espaciado vertical entre opciones */
+}
+
+/* Botones de selección de filtros */
+.cat-btn, .disabled-filter-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #a1a1aa; /* Gris claro sutil para textos apagados */
+    padding: 4px 6px;
+    text-align: left;
+    font-size: 12.5px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.2s ease;
+}
+
+/* Círculos selectores idénticos a Compra Gamer */
+.checkbox-indicator {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #2e2e33;
+    border-radius: 50%; /* Perfectamente redondo */
+    display: inline-block;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.cat-btn:hover {
+    color: #ffffff;
+}
+
+.cat-btn:hover .checkbox-indicator {
+    border-color: #4b4b53;
+}
+
+/* Variante activa seleccionada en verde neón */
+.cat-btn.active {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.cat-btn.active .checkbox-indicator {
+    border-color: #22c55e;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.disabled-filter-btn {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+.filter-group { margin-bottom: 25px; }
+.filter-group-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.filter-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+/* Botones de marcas estilo Checkbox circular */
+.cat-btn, .disabled-filter-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #8d8d99;
+    padding: 6px 8px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    transition: all 0.15s;
+}
+.checkbox-indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #323238;
+    border-radius: 50%; /* Circulares como en la foto */
+    display: inline-block;
+    transition: all 0.15s;
+}
+.cat-btn:hover { color: #e1e1e6; }
+.cat-btn:hover .checkbox-indicator { border-color: #7c7c8a; }
+
+.cat-btn.active { color: #22c55e; font-weight: 600; }
+.cat-btn.active .checkbox-indicator {
+    border-color: #22c55e;
+    background-color: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+}
+.disabled-filter-btn { cursor: default; opacity: 0.5; }
+/* PANEL COMPACTO DE PRODUCTOS CORREGIDO */
+.products-main-view {
+    flex-grow: 1;
+    padding: 30px 40px;
+    background-color: #121214;
+}
+
+.view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #202024;
+    padding-bottom: 12px;
+}
+.section-title { font-size: 16px; color: #ffffff; font-weight: 700; }
+.sort-label { font-size: 12px; color: #7c7c8a; margin-right: 8px; }
+.sort-select {
+    background-color: #0e0e10;
+    border: 1px solid #202024;
+    color: #e1e1e6;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* GRILLA MÁS COMPACTA (TARJETAS MÁS CHICAS) */
+.store-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); /* Bajamos de 240px a 190px */
+    gap: 20px;
+}
+
+/* TARJETA CHICA ESTILO MAXIMUS */
+.product-card {
+    background-color: #0e0e10;
+    border: 1px solid #202024;
+    border-radius: 6px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 310px; /* Más petisa y compacta */
+    transition: all 0.2s ease;
+    transition:.35s ease;
+    animation: fadeCard .4s ease;
+}
+.product-card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 0 20px rgba(0,255,136,.15);
+
+    border-color:
+    rgba(0,255,136,.4);
+}
+.product-img-container {
+    width: 100%;
+    height: 120px; /* Recuadro de foto más chico */
+    background-color: #0e0e10;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.product-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s; }
+.product-card:hover 
+.product-img { transform: scale(1.03); }
+.product-card img {
+    transition: all 0.35s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-category { font-size: 9px; text-transform: uppercase; color: #7c7c8a; letter-spacing: 0.5px; margin-bottom: 2px; }
+.product-name {
+    font-size: 12px; /* Letra más chica y fina */
+    font-weight: 500;
+    color: #c4c4cc;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    height: 34px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.product-footer { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #202024; padding-top: 10px; }
+.product-price { 
+    font-size: 16px; 
+    font-weight: 700; 
+    color: #ffffff;
+    color:#00ff88;
+    text-shadow:
+    0 0 10px rgba(0,255,136,.35);
+ } /* Precio blanco o neón sutil */
+
+.add-card-btn {
+    width: 100%;
+    background-color: #22c55e; /* Verde neón liso de acción como en Maximus */
+    border: none;
+    color: #000000;
+    padding: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    transition:.3s;
+}
+.add-card-btn:hover{
+
+    background:#00ff88;
+
+    color:#000;
+
+    box-shadow:
+    0 0 15px #00ff88;
+
+    transform:
+    translateY(-2px);
+}
+
+/* REGLAS MODALES BÁSICAS */
+.product-detail-overlay, .cart-sidebar-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.85); z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
+.product-detail-overlay.hidden, .cart-sidebar-overlay.hidden { opacity: 0; pointer-events: none; }
+.product-detail-content { 
+   background:
+linear-gradient(
+180deg,
+#101012,
+#0b0b0c
+);
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 0 40px rgba(0,0,0,.5);
+    border: 1px solid #202024; 
+    width: 100%; 
+    max-width: 750px; 
+    border-radius: 8px; 
+    padding: 30px; 
+    position: relative;
+animation: modalEntrada .25s ease;
+}
+.close-detail-btn, .close-cart-btn { position: absolute; top: 12px; right: 16px; background: none; border: none; color: #7c7c8a; font-size: 28px; cursor: pointer; }
+.product-detail-body { display: flex; gap: 30px; }
+.product-gallery-section { width: 45%; display: flex; flex-direction: column; gap: 10px; }
+.main-image-box { width: 100%; height: 320px; background-color: #121214; border: 1px solid #202024; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+#detail-main-img{
+
+    max-width:100%;
+    max-height:100%;
+
+    object-fit:contain;
+
+    transition:
+    transform .35s ease;
+}
+.main-image-box:hover #detail-main-img{
+    transform:scale(1.08);
+}
+.thumbnails-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.thumb-box { height: 45px; background-color: #121214; border: 1px solid #202024; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition:.25s; }
+.thumb-box img { max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.4; }
+.thumb-box:hover{
+
+    border-color:#00ff88;
+
+    transform:translateY(-2px);
+}
+.product-info-section { width: 55%; display: flex; flex-direction: column; justify-content: center; }
+.detail-category { font-size: 9px; text-transform: uppercase; color: #7c7c8a; }
+.detail-name { font-size: 22px; font-weight: 700; color: #ffffff; }
+.detail-divider { width: 35px; height: 2px; background-color: #22c55e; margin: 12px 0; }
+.detail-description { color: #8d8d99; font-size: 12px; line-height: 1.5; }
+.color-selector-container { margin-top: 12px; display: flex; flex-direction: column; gap: 4px; }
+.color-label { font-size: 10px; text-transform: uppercase; color: #7c7c8a; }
+.color-options { display: flex; gap: 8px; }
+.color-dot { width: 18px; height: 18px; border-radius: 50%; cursor: pointer; border: 2px solid #202024; }
+.color-dot.active { border-color: #22c55e !important; }
+.product-detail-footer { border-top: 1px solid #202024; padding-top: 15px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+.detail-price-value{
+
+    font-size:30px;
+    font-weight:800;
+
+    color:#00ff88;
+
+    text-shadow:
+    0 0 10px rgba(0,255,136,.35);
+}
+.btn-detail { padding: 10px 20px; font-size: 11px; font-weight: 700; border-radius: 4px; cursor: pointer; text-transform: uppercase; }
+.btn-buy-now{
+
+    background:#00ff88;
+
+    color:black;
+
+    transition:.3s;
+}
+.btn-buy-now:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 15px #00ff88,
+    0 0 30px rgba(0,255,136,.3);
+}
+/* Carrito */
+.cart-sidebar-overlay { justify-content: flex-end; }
+.cart-sidebar-content { background-color: #0e0e10; border-left: 1px solid #202024; width: 100%; max-width: 380px; height: 100vh; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; }
+.cart-sidebar-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #202024; padding-bottom: 12px; }
+.cart-items-list { flex-grow: 1; overflow-y: auto; padding: 15px 0; display: flex; flex-direction: column; gap: 12px; }
+.cart-item-row { display: flex; align-items: center; gap: 12px; background-color: #121214; border: 1px solid #202024; padding: 10px; border-radius: 6px; position: relative; }
+.cart-item-img-box { width: 45px; height: 45px; background-color: #0e0e10; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 1px solid #202024; }
+.cart-item-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cart-item-title { font-size: 12px; font-weight: 700; color: #ffffff; }
+.cart-item-meta { font-size: 9px; color: #7c7c8a; }
+.cart-item-price-val { font-size: 12px; font-weight: 800; color: #22c55e; }
+.remove-item-btn { background: none; border: none; color: #7c7c8a; font-size: 16px; cursor: pointer; position: absolute; top: 8px; right: 10px; }
+.cart-sidebar-footer { border-top: 1px solid #202024; padding-top: 15px; }
+.total-row { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 15px; }
+.total-row #cart-total-price { color: #22c55e; }
+.btn-checkout { width: 100%; padding: 14px; font-size: 12px; font-weight: 700; border-radius: 4px; text-transform: uppercase; }
+.btn-clear-cart { background: none; border: none; color: #7c7c8a; font-size: 10px; text-transform: uppercase; font-weight: 600; width: 100%; text-align: center; margin-top: 8px; }
+
+/* RESPONSIVE CELULARES */
+@media (max-width: 900px) {
+    .page-layout { flex-direction: column; }
+    .sidebar-filters { width: 100%; height: auto; position: relative; top: 0; padding: 12px; border-right: none; border-bottom: 1px solid #202024; }
+    .filter-list { flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
+    .cat-btn, .disabled-filter-btn { white-space: nowrap; padding: 6px 10px; }
+    .dummy-list { display: none; } /* Oculta subcategorías de prueba en celu */
+    .products-main-view { margin-left: 0; padding: 15px; }
+    .main-navbar { padding: 0 12px; }
+    .nav-center { display: none; }
+    .store-grid-compact { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .product-card { min-height: 250px; padding: 10px; }
+    .product-img-container { height: 90px; }
+    .product-name { font-size: 11px; height: 30px; }
+}
+/* ==========================================================================
+   ⚡ ESTILOS PANTALLA PRINCIPAL DE BIENVENIDA (HERO)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth; /* 💡 CLAVE: Fuerza a que todo scroll en la página sea una animación fluida */
+}
+
+.hero-welcome {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Ocupa toda la pantalla de entrada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #202024;
+}
+
+.cyber-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, #0f0f0f 1px, transparent 1px),
+        linear-gradient(to bottom, #0f0f0f 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, #000 70%, transparent 100%);
+    opacity: 0.7;
+}
+
+.hero-welcome-content {
+    position: relative;
+    z-index: 10;
+    max-width: 650px;
+}
+
+.welcome-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-family: monospace;
+    letter-spacing: 3px;
+    color: #4ade80;
+    background-color: rgba(20, 83, 45, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.welcome-title {
+    font-size: 74px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #ffffff;
+    line-height: 1;
+}
+.welcome-subtitle {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #7c7c8a;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.welcome-description {
+    color: #8d8d99;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-welcome {
+    padding: 14px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none; /* Quita el subrayado de enlace */
+    transition: all 0.2s ease;
+}
+
+.btn-primary-welcome {
+    background-color: #22c55e;
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+}
+
+.btn-primary-welcome:hover {
+    background-color: #4ade80;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-welcome {
+    background-color: #0e0e10;
+    border: 1px solid #202024;
+    color: #e1e1e6;
+}
+
+.btn-secondary-welcome:hover {
+    border-color: #22c55e;
+    color: #22c55e;
+    transform: translateY(-2px);
+}
+
+/* Modificamos el comportamiento de la navbar para que se quede fija recién cuando arranca el catálogo */
+.main-navbar {
+    position: sticky; /* 💡 Cambiamos fixed por sticky para que espere al scroll */
+}
+/* ==========================================================================
+   💬 ESTILOS BOTÓN FLOTANTE DE WHATSAPP (SOPORTE)
+   ========================================================================== */
+.wpp-floating-btn {
+    position: fixed;
+    bottom: 30px;              /* Separación de la parte inferior */
+    right: 30px;               /* Separación del borde derecho */
+    width: 60px;               /* Ancho del círculo */
+    height: 60px;              /* Alto del círculo */
+    background-color: #25d366; /* Verde oficial de WhatsApp */
+    color: #ffffff;            /* Icono en blanco */
+    border-radius: 50%;        /* Círculo perfecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;              /* Por encima de catálogos y modales */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    /* Animación continua de pulso suave */
+    animation: wpp-pulse 2s infinite;
+}
+
+.wpp-icon {
+    width: 32px;               /* Tamaño del logo adentro del círculo */
+    height: 32px;
+}
+
+/* Efecto al pasar el cursor por encima */
+.wpp-floating-btn:hover {
+    transform: scale(1.1);     /* Se agranda un toque */
+    background-color: #22c55e; /* Cambia a nuestro verde neón de 717 */
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6); /* Brillo neón pro */
+}
+
+/* Animación de respiración/pulso sutil */
+@keyframes wpp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Ajuste para que en celulares no tape los botones del catálogo de abajo */
+@media (max-width: 900px) {
+    .wpp-floating-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .wpp-icon {
+        width: 26px;
+        height: 26px;
+    }
+}
+/* ==========================================================================
+   🏢 ESTILOS PIE DE PÁGINA PREMIUM (FOOTER)
+   ========================================================================== */
+.main-footer {
+    width: 100vw;
+    background-color: #0e0e10; /* Gris ultra oscuro idéntico a la barra de filtros */
+    border-top: 1px solid #202024;
+    padding: 50px 40px 20px 40px;
+    margin-top: 50px; /* Margen de cortesía para separarse de la grilla de productos */
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas auto-ajustables */
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+.footer-description {
+    font-size: 12px;
+    color: #8d8d99;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* ==========================================================================
+   ⚡ REDISEÑO: REDES SOCIALES AMPLIADAS CON LOGOTIPOS REALES
+   ========================================================================== */
+.footer-title-expanded {
+    font-size: 16px;          /* Título de sección más imponente */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.footer-links-expanded {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                /* Más espacio vertical entre botones */
+    margin-top: 5px;
+}
+
+.footer-link-item-pro {
+    font-size: 15px;          /* Letra más grande (subió de 12px a 15px) */
+    font-weight: 600;
+    color: #a1a1aa;           /* Gris prolijo apagado de base */
+    text-decoration: none;
+    display: flex;
+    align-items: center;      /* Alinea el logo y el texto en el centro */
+    gap: 12px;                /* Distancia entre el logo y la palabra */
+    transition: all 0.25s ease;
+}
+
+/* Estilo para los logotipos SVG oficiales de las redes */
+.social-svg {
+    width: 22px;              /* Tamaño pro del logotipo */
+    height: 22px;
+    transition: transform 0.25s ease;
+}
+
+/* Efecto hover interactivo: Brillo verde neón y se estira un toque */
+.footer-link-item-pro:hover {
+    color: #22c55e;           /* Cambia el texto a verde neón */
+    padding-left: 6px;        /* Desplazamiento dinámico */
+}
+
+.footer-link-item-pro:hover .social-svg {
+    transform: scale(1.15);   /* El logo se expande un poquito al pasar el cursor */
+}
+
+/* Copia de seguridad responsive para celulares */
+@media (max-width: 900px) {
+    .footer-links-expanded {
+        align-items: center;  /* Centra las redes en pantallas chicas */
+    }
+    .footer-link-item-pro:hover {
+        padding-left: 0;      /* Quita el desplazamiento en celulares */
+    }
+}
+
+
+/* Efecto hover con brillo verde neón en los enlaces de redes */
+.footer-link-item:hover {
+    color: #22c55e;
+    padding-left: 4px; /* Pequeño desplazamiento interactivo */
+}
+
+.footer-info-list li {
+    font-size: 12px;
+    color: #8d8d99;
+}
+
+/* Barra final de Copyright */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid #121214;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 10px;
+    font-family: monospace;
+    color: #323238;
+    letter-spacing: 1px;
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 900px) {
+    .main-footer {
+        padding: 40px 20px 20px 20px;
+    }
+    .footer-container {
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-description {
+        max-width: 100%;
+    }
+    .footer-link-item:hover {
+        padding-left: 0;
+    }
+}
+/* ==========================================================================
+   📦 ESTILOS FORMULARIO DE DESPACHO (CHECKOUT MODAL)
+   ========================================================================== */
+.checkout-form-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 999998; /* Por encima del carrito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: opacity 0.25s ease;
+}
+.checkout-form-overlay.hidden { opacity: 0; pointer-events: none; }
+
+.checkout-form-content {
+    background-color: #0e0e10;
+    border: 1px solid #202024;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    z-index: 999998;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+.close-form-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #7c7c8a; font-size: 28px; cursor: pointer; }
+.form-main-title { font-size: 20px; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
+.form-divider { width: 40px; height: 2px; background-color: #22c55e; margin: 12px 0 20px 0; }
+
+.input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.input-block label { font-size: 11px; text-transform: uppercase; color: #7c7c8a; letter-spacing: 0.5px; font-weight: 600; }
+.input-block input, .input-block select {
+    background-color: #121214;
+    border: 1px solid #202024;
+    padding: 10px 14px;
+    color: #ffffff;
+    font-size: 13px;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+}
+.input-block input:focus, .input-block select:focus { border-color: #22c55e; }
+
+/* Clases de control dinámico */
+.hidden-field { display: none !important; }
+.form-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-row-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.payment-alert-info {
+    background-color: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.payment-alert-info p { font-size: 12px; color: #4ade80; line-height: 1.5; font-weight: 500; }
+
+.btn-submit-order {
+    width: 100%;
+    background-color: #22c55e;
+    border: none;
+    color: #000000;
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 10px;
+}
+.btn-submit-order:hover { background-color: #4ade80; }
+
+@media (max-width: 600px) {
+    .form-row-grid, .form-row-grid-3 { grid-template-columns: 1fr; gap: 0; }
+}
+/* Contenedor derecho de la barra de navegación */
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* 🖤 BOTÓN DEL CARRITO NEGRO POR DEFECTO */
+.cart-toggle-btn {
+    background-color: #0b0b0c;
+    border: 1px solid #1a1a1e;
+    color: #71717a;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* ⚡ EFECTO HOVER: ILUMINACIÓN NEÓN RGB */
+.cart-toggle-btn:hover {
+    color: #22c55e;
+    background-color: #0d1510;
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4), 
+                0 0 30px rgba(34, 197, 94, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Burbuja del número de productos (Contador) */
+.cart-badge-count {
+    background-color: #22c55e;
+    color: #000000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 16px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Animación del contador cuando el botón se ilumina */
+.cart-toggle-btn:hover .cart-badge-count {
+    background-color: #ffffff;
+    box-shadow: 0 0 12px #ffffff;
+}
+
+
+/* Efecto hover al pasar el mouse */
+.cart-toggle-btn:hover {
+    border-color: #22c55e;
+    color: #22c55e;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+
+/* Burbuja indicadora del número de productos */
+.cart-badge-count {
+    background-color: #22c55e;
+    color: #000000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 50%;
+    display: inline-block;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+}
+/* Configuración del fondo oscuro del carrito */
+.cart-sidebar-overlay{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(6px);
+
+    z-index: 99999;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-sidebar-overlay .cart-sidebar-content {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 400px;
+    height: 100vh;
+
+    background: #0d0d0d;
+
+    border-left: 1px solid #202020;
+
+    transform: translateX(0);
+
+    transition: .4s ease;
+}
+/* ⚡ COMPORTAMIENTO CUANDO EL CARRITO ESTÁ OCULTO (.hidden) */
+.cart-sidebar-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cart-sidebar-overlay.hidden .cart-sidebar-content{
+    transform: translateX(100%);
+}
+/* ⚡ BOTONES DE FILTRADO (MENÚ DE LA IZQUIERDA) */
+.cat-btn {
+    background-color: #0b0b0c;
+    border: 1px solid #1a1a1e;
+    color: #a1a1aa;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto Hover en filtros */
+.cat-btn:hover, .cat-btn.active {
+    color: #22c55e;
+    background-color: #0d1510;
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3), 
+                inset 0 0 8px rgba(34, 197, 94, 0.1);
+    transform: translateX(4px); /* Se desplaza un poquito a la derecha al tocarlo */
+}
+
+/* ⚡ BOTÓN "SUMAR AL CARRITO" (EN LAS TARJETAS) */
+.add-card-btn {
+    background-color: #0b0b0c;
+    border: 1px solid #1a1a1e;
+    color: #e1e1e6;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+
+/* Efecto Hover en tarjetas */
+.add-card-btn:hover {
+    color: #22c55e;
+    background-color: #0d1510;
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    transform: scale(1.02); /* Se agranda un pelín dando efecto de presión */
+}
+/* ⚡ BOTÓN FINALIZAR / CONFIRMAR PEDIDO */
+.btn-submit-order, .btn-checkout {
+    background-color: #0b0b0c;
+    border: 1px solid #1a1a1e;
+    color: #e1e1e6;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto Hover en confirmación final */
+.btn-submit-order:hover, .btn-checkout:hover {
+    color: #000000;
+    background-color: #22c55e; /* Se pinta todo de verde neón al confirmar */
+    border-color: #22c55e;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+    transform: translateY(-2px);
+}
+
+/* ⚡ BOTONES DE CIERRE (LAS "X" DE LOS MODALES) */
+.close-detail-btn, .close-form-btn, .close-cart-btn {
+    color: #71717a;
+    transition: all 0.2s ease;
+}
+
+.close-detail-btn:hover, .close-form-btn:hover, .close-cart-btn:hover {
+    color: #ef4444; /* Las X se encienden en rojo alerta al pasar el cursor */
+    transform: rotate(90deg); /* Giran un poquito al pasar el mouse */
+}
+
+/* ⚡ EFECTO PREMIUM COMPLETO EN LA TARJETA DEL PRODUCTO */
+.product-card {
+    border: 1px solid #1a1a1e;
+    background-color: #0b0b0c;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.35s ease;
+}
+
+/* La tarjeta entera reacciona sutilmente cuando el usuario la mira */
+.product-card:hover {
+    border-color: #22c55e;
+    box-shadow: 0 5px 20px rgba(34, 197, 94, 0.15);
+    transform: translateY(-4px);
+    transform: scale(1.06);
+}
+/* ==========================
+   TOPBAR 717 TECH
+========================== */
+
+.main-navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:18px 30px;
+
+    background:rgba(10,10,10,.85);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.store-logo{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.store-logo span{
+    color:#00ff88;
+    font-style:italic;
+}
+
+.store-logo{
+    color:white;
+}
+
+.search-wrapper{
+    flex:1;
+    max-width:700px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+}
+
+.search-btn{
+    position:absolute;
+    left:15px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#0d0d0d;
+
+    color:#00ff88;
+
+    box-shadow:
+    0 0 10px #00ff88,
+    0 0 20px rgba(0,255,136,.5);
+
+    z-index:2;
+}
+
+#search-input{
+    width:100%;
+    height:58px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.03);
+
+    color:white;
+
+    padding-left:75px;
+    padding-right:20px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+#search-input:focus{
+    border-color:#00ff88;
+
+    box-shadow:
+    0 0 15px rgba(0,255,136,.35);
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.menu-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .store-logo{
+        font-size:28px;
+    }
+
+    #search-input{
+        height:50px;
+        font-size:14px;
+    }
+
+    .menu-btn{
+        font-size:24px;
+    }
+}
+/* ========================= */
+/* NAVBAR PREMIUM 717TECH */
+/* ========================= */
+
+.main-navbar{
+    position: sticky;
+    top:0;
+    z-index:1000;
+
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    background:#070707;
+    border-bottom:1px solid #141414;
+    backdrop-filter: blur(14px);
+
+background:
+rgba(8,8,8,.82);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.5);
+}
+
+/* LOGO */
+
+.logo-tech{
+    display:flex;
+    align-items:center;
+
+    font-size:2.5rem;
+    font-weight:900;
+
+    letter-spacing:-2px;
+    text-transform:uppercase;
+
+    font-family:'Teko', sans-serif;
+
+}
+
+.logo-717{
+    color:#ffffff;
+
+    font-size:3.6rem;
+    font-weight:900;
+
+    letter-spacing:-3px;
+    line-height:1;
+
+    font-family:'Arial Black',sans-serif;
+
+}
+
+.logo-text{
+    color:#00ff88;
+
+    margin-left:8px;
+
+    text-shadow:
+    0 0 10px #00ff88,
+    0 0 25px #00ff88,
+    0 0 50px #00ff88;
+}
+/* SEARCH */
+
+.search-wrapper{
+
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:70px;
+    height:70px;
+
+    transition:.45s;
+
+    display:flex;
+    align-items:center;
+
+    border-radius:50px;
+}
+
+.search-wrapper:hover{
+    width:720px;
+    backdrop-filter: blur(12px);
+box-shadow: 0 0 25px rgba(0,255,136,.15);
+}
+
+.search-btn{
+
+    width:70px;
+    height:70px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#0d0d0d;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 12px #00ff88,
+    0 0 30px #00ff88;
+}
+
+.search-wrapper input{
+
+    width:0;
+
+    opacity:0;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:1rem;
+
+    transition:.4s;
+
+    margin-left:15px;
+}
+
+.search-wrapper:hover input{
+
+    width:100%;
+    opacity:1;
+}
+
+.search-wrapper:hover{
+
+    background:
+    linear-gradient(
+    90deg,
+    rgba(20,20,20,.95),
+    rgba(10,10,10,.95));
+
+    border:1px solid #232323;
+}
+
+/* BOTONES DERECHA */
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.menu-btn{
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+}
+
+.cart-toggle-btn{
+
+    position:relative;
+
+    width:48px;
+    height:48px;
+
+    border-radius:12px;
+
+    border:1px solid #1f1f1f;
+
+    background:#101010;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.cart-badge-count{
+
+    position:absolute;
+
+    top:-8px;
+    right:-8px;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:#00ff88;
+    color:black;
+
+    font-size:.75rem;
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+@keyframes fadeCard{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#090909;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#00ff88;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#00cc6f;
+}
+@keyframes modalEntrada{
+
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+@media (max-width:768px){
+
+    .search-wrapper{
+
+        width:70px;
+        height:70px;
+
+        overflow:hidden;
+    }
+
+    .search-wrapper:hover{
+
+        width:70px;
+    }
+
+    .search-wrapper.active{
+
+        width:85vw;
+    }
+
+    .search-wrapper input{
+
+        width:0;
+        opacity:0;
+    }
+
+    .search-wrapper.active input{
+
+        width:100%;
+        opacity:1;
+    }
+
+}
