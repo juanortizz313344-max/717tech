@@ -4,23 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const productos = {
           logitech: [
             { 
-                id: "l1", name: "G Pro X Superlight", category: "Mouse Wireless", price: "$149.99", image: "images/logitech/gpro.jpg",
-                description: "Diseñado con los profesionales de esports. Ultra liviano con menos de 63 gramos, tecnología inalámbrica LIGHTSPEED de grado profesional y sensor HERO 25K para una precisión milimétrica.",
-                colors: ["#000000", "#ffffff"],
-                imagesByColor: {
-                    "#000000": [
-                        "images/logitech/gpronegro1.png", 
-                        "images/logitech/gpronegro2.webp", 
-                        "images/logitech/gpronegro3.jpg", 
-                    ],
-                    "#ffffff": [
-                        "images/logitech/gprox1.jpg", 
-                        "images/logitech/gprox2.webp",
-                        "images/logitech/gprox3.png",
-                    ]
-                }
-            },
-            { 
                 id: "l2", name: "Logitech G203", category: "Teclado RGB", price: "$229.99", image: "images/logitech/g203portada.png",
                 description: "Tecnología inalámbrica LIGHTSPEED, RGB LIGHTSYNC avanzada y selectores mecánicos de perfil bajo y alto rendimiento. Construido con materiales premium de alta resistencia.",
                 colors: ["#000000", "#ffffff"],
@@ -40,15 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         redragon: [
              { 
-                id: "r1", name: "Redragon Kumara K552 RGB", category: "Teclado Mecánico", price: "$49.99", image: "images/redragon/kumara1.png",
+                id: "r1", name: "Redragon Kumara K552 RGB", category: "Teclado Mecánico", price: "$50.000", image: "images/redragon/kumn1.png",
                 description: "Estructura de aluminio y ABS de alta resistencia, switches táctiles Outemu Blue y retroiluminación RGB configurable de nivel competitivo.",
                 colors: ["#000000", "#ffffff"],
                 imagesByColor: {
                     "#000000": [
-                        "images/redragon/kumaranegro1.png", 
-                        "images/redragon/kumaranegro1.png", 
-                        "images/redragon/kumaranegro1.png", 
-                        "images/redragon/kumaranegro1.png"
+                        "images/redragon/kumn1.png", 
+                        "images/redragon/kumn2.png", 
+                        "images/redragon/kumn3.png", 
+                        
                     ],
                     "#ffffff": [
                         "images/redragon/kumaraw2.png", 
@@ -68,7 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     description: "Teclado mecánico compacto inalámbrico con iluminación RGB.",
     colors: ["#000000"],
     imagesByColor: {
-        "#000000": ["images/redragon/default.png","images/redragon/default.png","images/redragon/default.png"]
+        "#000000": [
+            "images/redragon/default.png",
+            "images/redragon/default.png",
+            "images/redragon/default.png"
+        ]
     }
 },
 {
@@ -76,11 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
     name: "Redragon Ucal Magnetic",
     category: "Teclado Mecánico",
     price: "$85.000",
-    image: "images/redragon/default.png",
+    image: "images/redragon/ucal2r.png",
     description: "Teclado magnético gamer de alta precisión.",
     colors: ["#000000"],
     imagesByColor: {
-        "#000000": ["images/redragon/default.png","images/redragon/default.png","images/redragon/default.png"]
+        "#000000": [
+            "images/redragon/ucal2r.png",
+            "images/redragon/ucal3r.png", 
+            "images/redragon/ucal4r.png", 
+        ]
     }
 },
 {
